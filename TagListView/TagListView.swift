@@ -240,7 +240,7 @@ open class TagListView: UIView {
             tagView.frame.size = tagView.intrinsicContentSize
             tagViewHeight = tagView.frame.height
             
-            if currentRowTagCount == 0 || currentRowWidth + tagView.frame.width > frame.width {
+            if currentRowTagCount == 0 || currentRowWidth + tagView.frame.width > UIScreen.main.bounds.width-48 {
                 currentRow += 1
                 currentRowWidth = 0
                 currentRowTagCount = 0
@@ -250,7 +250,7 @@ open class TagListView: UIView {
                 rowViews.append(currentRowView)
                 addSubview(currentRowView)
 
-                tagView.frame.size.width = min(tagView.frame.size.width, frame.width)
+                tagView.frame.size.width = min(tagView.frame.size.width, UIScreen.main.bounds.width-48)
             }
             
             let tagBackgroundView = tagBackgroundViews[index]
